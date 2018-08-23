@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-on</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-on实例</h1>
+    <hr>
+    <div id="app">
+       <h3> 本场得分：{{score}}</h3>
+       <p>
+           <button v-on:click="add">加分</button>
+           <button v-on:click="reduce">减分</button>
+       </p>
+       <p>
+           <input type="text" @keyup.enter="onEnter" v-model="addsScore">
+       </p>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                score:0,
+                addsScore:1
+            },
+            methods:{
+                add:function(){
+                    this.score++;
+                },
+                reduce:function(){
+                    this.score--;
+                },
+                onEnter:function(){
+                    this.score = this.score + parseInt(this.addsScore);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

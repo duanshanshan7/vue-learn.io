@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.extend扩展实例构造器</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Vue.extend扩展实例构造器</h1>
+    <hr>
+    <div>
+        扩展为标签：<author></author>
+    </div><author></author>
+    扩展为id：<div id="author"></div>
+    扩展为class：<div class="author"></div>
+
+    <script>
+        var authorExtend = Vue.extend({
+            template:'<p><a :href="aothorUrl">{{authorName}}</a></p>',
+            data:function(){
+                return {
+                    aothorUrl:'http://www.baidu.com',
+                    authorName:'DSS'
+                }
+            }
+        });
+        new authorExtend().$mount('author'); //扩展为标签
+        new authorExtend().$mount('#author');  //扩展为id
+        new authorExtend().$mount('.author');  //扩展为class
+    </script>
+</body>
+</html>

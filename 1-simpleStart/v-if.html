@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-if&v-else&v-show</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Hello World</h1>
+    <hr>
+    <div id="app">
+        <div v-if="isLogin">你好  啦啦啦</div>
+        <div v-else>你好  请登录</div>
+    </div>
+    <div v-if="isShow">
+        v-show相当于控制this模块的css：display
+    </div>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                isLogin:false,
+                isShow:true
+
+            }
+        })
+    </script>
+</body>
+</html>

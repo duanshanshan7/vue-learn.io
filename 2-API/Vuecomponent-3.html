@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueComponent父子组件</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>VueComponent父子组件</h1>
+    <hr>
+    <div id="app">
+        <song :name="nameText"></song>
+    </div>
+
+    <script>
+        var lyrics = {
+            template:`<div>词：谢时间捻了眉头的霜花，谢沧桑喂饱思念的马。</div>`
+        };
+        var song = {
+            template:`
+                <div>
+                    曲名：{{name}}
+                    <lyrics></lyrics>
+                </div>
+            `,
+            props:['name'],
+            components:{
+                "lyrics":lyrics
+            }
+        };
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:'Hello World',
+                nameText:'如歌'
+            },
+            components:{
+                "song":song
+
+            }
+        })
+    </script>
+</body>
+</html>

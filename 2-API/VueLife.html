@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue声明周期-钩子函数</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Vue声明周期-钩子函数</h1>
+    <hr>
+    <div id="app">
+        {{count}}
+        <p><button @click="add">点击</button></p>
+    </div>
+    <p><button onclick="app.$destroy()">销毁</button></p>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                count:1
+            },
+            methods:{
+                add:function(){
+                    this.count++;
+                }
+            },
+            beforeCreate:function(){
+                console.log('1.初始化之后创建之前')
+            },
+            created:function(){
+                console.log('2.创建完成')
+            },
+            beforeMount:function(){
+                console.log('3.挂载之前')
+            },
+            mounted:function(){
+                console.log('4.挂载完成，被创建')
+            },
+            beforeUpdate:function(){
+                console.log('5.数据更新之前')
+            },
+            updated:function(){
+                console.log('6.数据更新完成')
+            },
+            activated:function(){
+                console.log('7.activated')
+            },
+            deactivated:function(){
+                console.log('8.deactivated')
+            },
+            beforeDestroy:function(){
+                console.log('9.销毁之前')
+            },
+            destroyed:function(){
+                console.log('10.销毁之后')
+            }
+        })
+    </script>
+</body>
+</html>

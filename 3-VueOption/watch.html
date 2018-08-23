@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>watch option</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>watch option</h1>
+    <hr>
+    <div id="app">
+        温度：{{wendu}}<br>
+        穿衣指数：{{chuanyi}}<br>
+        <button @click="add">add</button>
+        <button @click="reduce">reduce</button>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                wendu:14,
+                chuanyi:'夹克牛仔'
+            },
+            methods:{
+                add(){
+                    this.wendu += 5;
+                },
+                reduce(){
+                    this.wendu -=5;
+                }
+            },
+            // watch:{
+            //     wendu(newVal,oldVal){
+            //         if(newVal > 26){
+            //             this.chuanyi = 'T恤长裙';
+            //         }else if(newVal < 5){
+            //             this.chuanyi = '棉衣羽绒服';
+            //         }else{
+            //             this.chuanyi = '夹克牛仔';
+            //         }
+            //     }
+            // }
+        })
+        // watch 第二种用法  实例用法
+        app.$watch('wendu',function(newVal,oldVal){
+            if(newVal > 26){
+                this.chuanyi = 'T恤长裙';
+            }else if(newVal < 5){
+                this.chuanyi = '棉衣羽绒服';
+            }else{
+                this.chuanyi = '夹克牛仔';
+            }            
+        })
+    </script>
+</body>
+</html>

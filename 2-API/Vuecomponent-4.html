@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuecomponent标签</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Vuecomponent标签</h1>
+    <hr>
+    <div id="app">
+        <component :is="who"></component>
+        <button @click="changeComponent">changeComponent</button>
+    </div>
+
+    <script>
+        var componentA = {
+            template:`<div style="color:red">我是 componentA</div>`
+        };
+        var componentB = {
+            template:`<div style="color:green">我是 componentB</div>`
+        };
+        var componentC = {
+            template:`<div style="color:yellow">我是 componentC</div>`
+        };
+        var app = new Vue({
+            el:"#app",
+            data:{
+                who:'componentA'
+            },
+            components:{
+                "componentA":componentA,
+                "componentB":componentB,
+                "componentC":componentC
+            },
+            methods:{
+                changeComponent(){
+                    if(this.who == 'componentA'){
+                        this.who = 'componentB';
+                    }else if(this.who == 'componentB'){
+                        this.who = 'componentC';
+                    }else{
+                        this.who = 'componentA';
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>

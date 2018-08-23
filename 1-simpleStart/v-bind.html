@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-bind</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-bind实例</h1>
+    <hr>
+    <div id="app">
+        <img :src="imgSrc"><br>
+        <a :href="baidu">百度一下</a><br>
+        <div :class="className">1.绑定单个class</div>
+        <div :class="{colorRed:isOk}">2.绑定class中的判断</div>
+        <div :class="[classA,classB]">3.绑定class中的数组</div>
+        <div :class="isOk?classA:classB">4.绑定class中的三元表达式</div>
+        <div :style="{color:red,fontSize:font}">5.绑定style</div>
+        <div :style="styleObj">6.绑定style对象</div>
+    </div>
+
+    <style>
+        .colorRed{
+            color:red;
+        }
+        .fontSize{
+            font-size: 200%;
+        }
+    </style>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                imgSrc:"https://wx2.sinaimg.cn/mw690/8d5c03a7gy1fp1wur5vvtj20dw0dwta3.jpg",
+                baidu:"http://www.baidu.com",
+                className:"colorRed",
+                isOk:true,
+                classA:"colorRed",
+                classB:"fontSize",
+                red:"red",
+                font:"200%",
+                styleObj:{
+                    color:"#7fba00",
+                    fontSize:"200%"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

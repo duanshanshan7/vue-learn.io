@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue实例事件</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Vue实例事件</h1>
+    <hr>
+    <div id="app">
+        {{num}}
+    </div>
+    <p><button onclick="add()">add</button></p>
+    <p><button onclick="reduceOnce()">reduceOnce</button></p>
+    <p><button onclick="offAdd()">offAdd</button></p>
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                num:1
+            }
+        })
+        // 绑定+1事件
+        app.$on('add',function(){
+            this.num ++
+        })
+        function add(){
+            app.$emit('add')
+        }
+        // 一次事件
+        app.$once('reduceOnce',function(){
+            this.num --;
+            console.log('reduce 一次')
+        })
+        function reduceOnce(){
+            app.$emit('reduceOnce')
+        }
+        
+        // off 关闭事件
+        function offAdd(){
+            app.$off('add');
+        }
+    </script>
+</body>
+</html>

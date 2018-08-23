@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>extends option</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>extends option扩展选项</h1>
+    <hr>
+    <div id="app">
+        [num]
+        <p><button @click="add">add</button></p>
+        <p><button @click="out">out</button></p>
+    </div>
+
+    <script>
+        var extendObj = {
+            updated:function(){
+                console.log('我是扩展的update')
+            },
+            methods:{
+                add:function(){
+                    this.num ++;
+                    console.log('我是扩展的add方法')
+                },
+                out:function(){
+                    console.log('我是扩展的out方法')
+                }
+            }
+        }
+        var app = new Vue({
+            el:"#app",
+            data:{
+                num:1
+            },
+            methods:{
+                add(){
+                    this.num ++;
+                    console.log('我是原生的add方法')
+                }
+            },
+            updated(){
+                console.log('我是原生的update')
+            },
+            extends:extendObj,
+            delimiters:['[',']']   //改变使用插值的符号  把{{}}改为[]
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueSlot组件传递内容</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>VueSlot组件传递内容</h1>
+    <hr>
+    <div id="app">
+        <dss>
+            <!-- slot 使用的两步 -->
+            <!-- 1、在HTML的组件中用slot属性传递值。 -->
+            <span slot="name">{{dssData.name}}</span>
+            <span slot="skill">{{dssData.skill}}</span>
+            <span slot="url">{{dssData.url}}</span>
+        </dss>
+    </div>
+
+    <template id="dss">
+        <div>
+            <!-- 2、在组件模板中用<slot></slot>标签接收值。 -->
+            <p>name:<slot name="name"></slot></p>
+            <p>skill:<slot name="skill"></slot></p>
+            <p>url:<slot name="url"></slot></p>
+        </div>
+    </template>
+    <script>
+        var dssObj = {
+            template:'#dss'
+        }
+        var app = new Vue({
+            el:"#app",
+            data:{
+                dssData:{
+                    name:'dss',
+                    skill:'html,css,js',
+                    url:'暂无'
+                }
+            },
+            components:{
+                "dss":dssObj
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>component-1初识组件</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>component-1初识组件</h1>
+    <hr>
+    <div id="app">
+        <dss></dss>
+    </div>
+    <div id="app1">
+        <dss></dss>
+        <duan></duan>
+    </div>
+
+    <script>
+        // 全局组件
+        Vue.component('dss',{
+            template:`<h2 style="color:red">我是全局组件dss</h2>`
+        })
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:'Hello World'
+            }
+        })
+        var app = new Vue({
+            el:"#app1",
+            data:{
+                message:'Hello World'
+            },
+            components:{
+                "duan":{
+                    template:`<h2 style="color:red">我是局部组件duan</h2>`
+                }
+            }
+        })
+    </script>
+</body>
+</html>

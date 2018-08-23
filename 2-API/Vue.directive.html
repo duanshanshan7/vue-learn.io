@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.directive实例</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Vue.directive实例</h1>
+    <hr>
+    <div id="app">
+        <div v-dss="color">
+            {{num}}
+        </div>
+        <button @click="add">Add</button>
+    </div><br>
+    <button onclick="unbind()">unbind解绑</button>
+
+    <script>
+        //  解绑vue
+        function unbind(){
+            app.$destroy();
+        }
+
+        // Vue.directive('dss',function(el,binding,vnode){
+        //     console.log(el);
+        //     console.log(binding);
+        //     console.log(vnode);
+        //     el.style='color:' + binding.value
+        // })
+        Vue.directive('dss',{
+            bind:function(el,binding,vnode){
+                console.log('1-bind');
+                el.style = 'color:' + binding.value;
+            },
+            inserted:function(){
+                console.log('2-inserted');
+            },
+            update:function(){
+                console.log('3-update');
+            },
+            componentUpdated:function(){
+                console.log('4-componentUpdated');
+            },
+            unbind:function(){
+                console.log('5-unbind');
+            }
+        })
+        var app = new Vue({
+            el:"#app",
+            data:{
+                num:10,
+                color:'red'
+            },
+            methods:{
+                add:function(){
+                    this.num ++
+                }
+            }
+        })
+    </script>
+</body>
+</html>

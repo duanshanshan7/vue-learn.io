@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\Document\\vue\\jspang-vue\\helloweex\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v25\\values-v25.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\段姗姗\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\abaaa887c0f1c87249bd12bd51e07cbf\\res\\values-v25\\values-v25.xml",
+                    "from": {
+                        "startLines": "2,3,4,6",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,126,209,308",
+                        "endLines": "2,3,5,7",
+                        "endColumns": "70,82,12,12",
+                        "endOffsets": "121,204,303,414"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "D:\\Document\\vue\\jspang-vue\\helloweex\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\values-v25\\values-v25.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\段姗姗\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\abaaa887c0f1c87249bd12bd51e07cbf\\res\\values-v25\\values-v25.xml",
+                    "from": {
+                        "startLines": "2,3,4,6",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,126,209,308",
+                        "endLines": "2,3,5,7",
+                        "endColumns": "70,82,12,12",
+                        "endOffsets": "121,204,303,414"
+                    }
+                }
+            ]
+        }
+    ]
+}

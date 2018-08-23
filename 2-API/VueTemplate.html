@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Template模板实例</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Template模板三种写法实例</h1>
+    <hr>
+    <div id="app">
+        {{message}}
+        <!-- // 第二种写法  优点：template里面可写多行代码 -->
+        <template id="demo1">
+            <h2 style="color:red;">我是template标签模板</h2>
+        </template>
+    </div>
+    <!-- 第三种写法   优点：可src外部引入 -->
+    <script type="x-template" id="demo2" src="">
+            <h2 style="color:red;">我是script标签模板</h2>
+    </script>
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:'Hello World'
+            },
+            // 第一种写法 只能写少量的模板代码
+            // template:`
+            //     <h2 style="color:red;">我是选项标签</h2>
+            // `
+
+            // 第二种写法
+            // template:'#demo1'
+
+            // 第三种写法
+            template:'#demo2'
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mixin option</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>mixin option 混入</h1>
+    <hr>
+    <div id="app">
+        {{num}}
+        <p><button @click="add">add</button></p>
+    </div>
+
+    <script>
+        var addLog = {
+            updated:function(){
+                console.log('数据发生了变化，变成了'+this.num);
+            }
+        };
+        // 全局的混入 最先执行
+        Vue.mixin({
+            updated:function(){
+                console.log('我是全局的混入');
+            }
+        })
+        var app = new Vue({
+            el:"#app",
+            data:{
+                num:1
+            },
+            methods:{
+                add(){
+                    this.num ++;
+                }
+            },
+            updated(){
+                console.log('我是原生的updated')  //原生的方法最后执行
+            },
+            mixins:[addLog]   //混入
+        })
+    </script>
+</body>
+</html>

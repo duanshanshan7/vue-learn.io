@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.set 全局操作</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Vue.set 全局操作</h1>
+    <hr>
+    <div id="app">
+        {{count}}<br>
+        <ul>
+            <li v-for="item in Arr">{{item}}</li>
+        </ul>
+        <button onclick="change()">点击</button>
+    </div>
+
+    <script>
+        var outData = {
+            count:1,
+            Arr:['aa','bb','cc']
+        };
+        function change(){
+            // app.count++;
+            // app.Arr[1] = 'vv';
+            // outData.Arr[1] = 'mm';
+            // 由于Javascript的限制，Vue不能自动检测以下变动的数组。
+
+            // *当你利用索引直接设置一个项时，vue不会为我们自动更新。
+
+            // *当你修改数组的长度时，vue不会为我们自动更新。
+
+            //所以需要Vue.set来改变其值向下
+            // Vue.set(outData.Arr,1,'nn');
+            Vue.set(app.Arr,1,'nn');
+
+        };
+        var app = new Vue({
+            el:"#app",
+            data:outData
+        })
+    </script>
+</body>
+</html>

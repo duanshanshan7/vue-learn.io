@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue实例方法</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Vue实例方法</h1>
+    <hr>
+    <div id="app">
+    </div>
+    <p><button onclick="destroy()">销毁</button></p>
+    <p><button onclick="update()">刷新</button></p>
+    <p><button onclick="modify()">修改内容</button></p>
+
+    <script>
+        var dss = Vue.extend({
+            template:`<p>{{message}}</p>`,
+            data:function(){
+                return {
+                    message:'hello word'
+                }
+            },
+            mounted(){
+                console.log('mounted 被挂载之后')
+            },
+            destroyed(){
+                console.log('VM实例被销毁之后')
+            },
+            updated(){
+                console.log('VM实例刷新之后')
+            }
+        });
+        var vm = new dss().$mount('#app');  //将扩展dss挂载到app上
+        //以下是实例方法
+        // 销毁
+        function destroy(){
+            vm.$destroy();
+        }
+        // 刷新
+        function update(){
+            vm.$forceUpdate()
+        }
+        // 数据更改方法
+        function modify(){
+            vm.message = 'I am new message';
+            vm.$nextTick(function(){
+                console.log('数据被更新之后')
+            })
+        }
+    </script>
+</body>
+</html>

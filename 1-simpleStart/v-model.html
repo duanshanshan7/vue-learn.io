@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-model实例</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-model实例</h1>
+    <hr>
+    <div id="app">
+        <h1>双向绑定</h1>
+        <p>原始数据：{{message}}</p>
+        正常：<input type="text" v-model="message"><br>
+        lazy：<input type="text" v-model.lazy="message"><br>
+        number：<input type="text" v-model.number="message"><br>
+        trim：<input type="text" v-model.trim="message"><br>
+        文本域：<textarea v-model="message"></textarea><br>
+
+        <h1>多选按钮绑定一个值</h1>
+        <input type="checkbox" v-model="isTrue"><label>同意</label>
+        <label>结果：{{result}}</label>
+
+        <h1>多选按钮绑定一个数组</h1>
+        <input type="checkbox" value="eat" v-model="checkArr"><label>吃</label>
+        <input type="checkbox" value="drink" v-model="checkArr"><label>喝</label>
+        <input type="checkbox" value="play" v-model="checkArr"><label>玩</label>
+        <input type="checkbox" value="happy" v-model="checkArr"><label>乐</label>
+        <p>结果：{{checkArr}}</p>
+
+        <h1>单选按钮绑定一个值</h1>
+        <input type="radio" value="male" v-model="sex"><label>男</label>
+        <input type="radio" value="famale" v-model="sex"><label>女</label>
+        <p>结果：{{sex}}</p>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:'hello world',
+                isTrue:true,
+                checkArr:["eat"],
+                sex:'male'
+            },
+            computed:{
+                result:function(){
+                    return this.isTrue == true ? "同意" : "不同意";
+                }
+            }
+        })
+    </script>
+</body>
+</html>

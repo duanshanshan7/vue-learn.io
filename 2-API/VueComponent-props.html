@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VueComponent的props设置</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>VueComponent的props设置</h1>
+    <hr>
+    <div id="app">
+        <duan v-bind:text="message"></duan>
+        <duan name="dss"></duan>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+               message:'像涓涓温柔途径过百川。' 
+            },
+            components:{
+                "duan":{
+                    template:`<div>我至少听过，你说的喜欢， {{ text }}-{{ name }}</div>`,
+                    props:['text','name']
+                }
+            }
+        })
+    </script>
+</body>
+</html>

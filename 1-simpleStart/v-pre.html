@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-pre&v-cloak&v-once</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>v-pre&v-cloak&v-once实例</h1>
+    <hr>
+    <div id="app">
+        <p v-pre>v-per不绑定vue的date：{{message}}</p>
+        <p v-cloak>v-cloak 在vue渲染完指定的整个DOM后才进行显示,它必须和CSS样式一起使用</p>
+        <p v-once>v-once:双向绑定数据只绑定一次：{{onceMsg}}</p>
+        <input type="text" v-model="onceMsg">
+    </div>
+
+    <script>
+        var app = new Vue({
+            el:"#app",
+            data:{
+                message:'Hello World',
+                onceMsg:"once time"
+            }
+        })
+    </script>
+</body>
+</html>
